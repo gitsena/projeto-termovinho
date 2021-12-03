@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <script src="./assets/js/funcoes.js"></script>
+
+    <link rel="icon" href="./assets/icon/favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+
+<body>
+
+    <!--Header-->
+
+    <div class="header">
+        <div class="container2">
+            <img src="./assets/imgs/logo2-semfundopng.png" alt="">
+            <ul class="navbar">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="simulador.html">Simulador</a></li>
+                <li class="active"><a href="">Login</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="suporte.html">Suporte</a></li>
+            </ul>
+        </div>
+    </div>
+
+<!-- 
+    <div class="banner-login">
+        <div class="container">
+            <div class="card medio">
+                <h2>Olá de volta!</h2>
+                <div class="formulario">
+                    <form id="form_login" method="post" onsubmit="return entrar()">
+                        E-mail:
+                        <input name="email" type="text" placeholder="Login">
+                        <br>
+                        Senha:
+                        <input name="senha" type="password" placeholder="******">
+                        <br>
+                        <button class="btn" type="submit">
+                            Entrar
+                        </button>
+                    <!-- </form> -->
+                        <div class="banner-blur">
+                            <form id="form_login" method="post" onsubmit="return entrar()">
+                                <div class="container">
+                                    <h1>Login</h1>
+                                    <input class="textbox" name="email" type="email" placeholder="Login">
+                                    <input class="textbox" name="senha" type="password" placeholder="******">
+                                    <input class='btn' type="submit" value="Login">
+                                    Não tem uma conta? <a href="cadastro.html">Cadastre-se</a>
+                                    <a href="">Esqueci a senha</a>
+                                </div>
+                            </form>
+                        </div>
+
+                    <!-- </div> -->
+
+
+                <!-- </div> -->
+
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
+
+                <div id="div_erros_login"></div>
+            <!-- </div>
+        </div>
+    </div> -->
+
+    <!--footer inicio-->
+    <!-- <div class="footer">
+        <div class="container">
+            <h4>Feito com amor por um aluno BandTec &copy; 2021</h4>
+        </div>
+    </div> -->
+
+    <!-- modal?
+
+    <div id="div_modal" class="div-modal">
+        <div id="modal_backdrop" onclick="fecharModal()" class="modal-backdrop">
+        </div>
+        <div id="modal_container" class="modal-container">
+            <button onclick="fecharModal()">fechar modal</button>
+        </div>
+    </div> -->
+     <!-- Rodapé -->
+     <div class="footer">
+        <p>Termovinho © 2021</p>
+    </div>
+</div>
+
+
+</body>
+
+</html>
+
+<script>
+
+    function limparFormulario() {
+        document.getElementById("form_login").reset();
+    }
+
+    function entrar() {
+        aguardar();
+
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
+
+        var email = formulario.get("email");
+        var senha = formulario.get("senha");
+
+        console.log("FORM LOGIN: ", email);
+        console.log("FORM SENHA: ", senha);
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (email == "" || senha == "") {
+            window.alert("Preencha todos os campos para prosseguir!");
+            finalizarAguardar();
+            return false;
+        }
+
+        if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            finalizarAguardar();
+            return false;
+        }
+        
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+</script>

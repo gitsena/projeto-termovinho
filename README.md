@@ -1,2 +1,0 @@
-# mural
-muraldash

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termovinho | Página Inicial</title>
+
+   
+    <link rel="stylesheet" href="../css/dashboards.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../assets/js/funcoes.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- scripts do Chart.js -->
+    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+
+</head>
+
+<!-- <body onload="validarSessao(),  obterDadosGrafico(1)"> -->
+    <body>
+    <div class="janela">
+        <div class="header-left">
+            <h1>TERMO VINHOS </h1>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./cards.html">
+                    <h3 style="color: black;">Barris</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav">
+
+                <h3 style="color: black;">Gráficos</h3>
+
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./mural.html">
+                    <h3 style="color: black;">Mural de Avisos</h3>
+                </a>
+            </div> 
+            <br><br>
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3 style="color: black;">Sair</h3>
+            </div>
+
+        </div>
+
+        <div class="dash">
+            <div class="btns-dash">
+                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+                <button class="btn-chart" onclick="obterDadosGrafico(200)">Barril 1</button>
+                <button class="btn-chart" onclick="obterDadosGrafico(201)">Barril 2</button>
+                <button class="btn-chart" onclick="obterDadosGrafico(202)">Barril 3</button>
+                <button class="btn-chart" onclick="obterDadosGrafico(203)">Barril 4</button>
+            </div>
+            <div class="graph">
+                <canvas id="canvas_grafico"></canvas>
+            </div>
+        </div>
+    </div>
+    <div id="erros">
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+
+    let proximaAtualizacao;
+
+    //verificar_autenticacao();
+
+    // altere aqui como os dados serão exibidos
+    // e como são recuperados do BackEnd
+    function obterDadosGrafico(idBarril) {
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`/medidas/ultimas/${idBarril}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta, idBarril);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+    // só altere aqui se souber o que está fazendo!
+    function plotarGrafico(resposta, idBarril) {
+        console.log('iniciando plotagem do gráfico...');
+
+        var dados = {
+            labels: [],
+            datasets: [
+                {
+                    yAxisID: 'y-temperatura',
+                    label: 'temperatura',
+                    borderColor: 'black',
+                    backgroundColor: '#fa4454',
+                    fill: true,
+                    data: []
+                }
+            ]
+        };
+
+        for (i = 0; i < resposta.length; i++) {
+
+            var registro = resposta[i];
+            dados.labels.push(registro.momento_grafico);
+            dados.datasets[0].data.push(registro.temperatura_lm35);
+            if (dados.datasets[0].data[dados.datasets[0].data.length-1] <= 24) {
+                dados.datasets[0].backgroundColor = '#0000ff';
+            }
+            else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 26) {
+                dados.datasets[0].backgroundColor = '#ffff00';
+                
+                }
+            else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 23 && dados.datasets[0].data[dados.datasets[0].data.length-1] < 27) {
+                dados.datasets[0].backgroundColor = '#fa4454';
+                }
+        }
+
+        console.log(JSON.stringify(dados));
+
+        var ctx = canvas_grafico.getContext('2d');
+        window.grafico_linha = Chart.Line(ctx, {
+            data: dados,
+            //Configurações do gráfico
+            options: {
+                responsive: true,
+                animation: { duration: 500 },
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: true,
+                    text: 'Histórico recente de temperatura'
+                },
+                scales: {
+                    yAxes: [{
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        id: 'y-temperatura',
+                    },],
+                }
+            }
+        });
+
+        //Atualiza os dados de 2 em 2 segundos
+        setTimeout(() => atualizarGrafico(idBarril, dados), 2000);
+    }
+
+    // só mexer se quiser alterar o tempo de atualização
+    // ou se souber o que está fazendo!
+    function atualizarGrafico(idBarril, dados) {
+        fetch(`/medidas/tempo-real/${idBarril}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico: ${dados}`);
+
+                    // tirando e colocando valores no gráfico
+                    dados.labels.shift(); // apagar o primeiro
+                    dados.labels.push(novoRegistro[novoRegistro.length - 1].momento_grafico); // incluir um novo momento
+                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                    dados.datasets[0].data.push(novoRegistro[novoRegistro.length - 1].temperatura_lm35); // incluir uma nova medida de umidade
+
+                    window.grafico_linha.update();
+                    if (dados.datasets[0].data[dados.datasets[0].data.length-1] < 24) {
+                dados.datasets[0].backgroundColor = '#0000ff';
+            }
+            else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 26) {
+                dados.datasets[0].backgroundColor = '#ffff00';
+                
+                }
+            else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 23 && dados.datasets[0].data[dados.datasets[0].data.length-1] < 27) {
+                dados.datasets[0].backgroundColor = '#fa4454';
+                }
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 5000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 5000);
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+</script>

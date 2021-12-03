@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro</title>
+
+    
+    <script src="/assets/js/funcoes.js"></script>
+    
+    
+    <link rel="icon" href="./assets/icon/favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    
+</head>
+
+<body>
+
+    <!--header inicio-->
+    <div class="header">
+        <div class="container2">
+            <img src="./assets/imgs/logo2-semfundopng.png" alt="">
+            <ul class="navbar">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="simulador.html">Simulador</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li class="active"><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="suporte.html">Suporte</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--header fim-->
+
+    <div class="banner-blur">
+        <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+            <div class="container">
+                <h1>Bem-vindo!</h1>
+                <!-- <div class="formulario"> -->
+                <div>
+                    <input class="textbox-cad" name="nome" type="text" placeholder="Nome ou Razão Social">
+                    <input class="textbox-cad" name="cpf" type="text" placeholder="CPF ou CNPJ">
+                </div>
+                <div>
+                    <input class="textbox-cad" name="telefone" type="text" placeholder="Telefone">
+                    <input class="textbox-cad" name="email" type="text" placeholder="E-mail">
+                </div>
+                <div>
+                    <input class="textbox-cad" name="senha" type="password" placeholder="Senha">
+                    <input class="textbox-cad" name="confirmacao-senha" type="password" placeholder="Confirme a senha">
+                </div>
+                <button class="btn">Cadastrar</button>
+                <!-- </div> -->
+                <div id="div_aguardar" class="loading-div">
+                    <img src="/assets/circle-loading.gif" id="loading-gif">
+                </div><div id="div_erros_login"></div>
+            </div>
+        </form>
+    </div>
+
+    
+     <!-- Rodapé -->
+     <div class="footer">
+        <p>Termovinho © 2021</p>
+    </div>
+</div>
+</body>
+
+</html>
+
+<script>
+
+    function limparFormulario() {
+        document.getElementById("form_cadastro").reset();
+    }
+
+    function cadastrar() {
+        aguardar();
+
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+
+        var nome = formulario.get("nome");
+        var email = formulario.get("email");
+        var senha = formulario.get("senha");
+        var confirmacaoSenha = formulario.get("confirmacao-senha");
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "") {
+            
+            window.alert("Preencha todos os campos para prosseguir!");
+            if (nome == "")  {
+                console.log('nome está em branco')
+            }
+            if (email == "" )  {
+                console.log('email está em branco')
+            }
+            if (senha == "" )  {
+                console.log('senha está em branco')
+            }
+            if (confirmacaoSenha == "" )  {
+                console.log('confirmacaoSenha está em branco')
+            }
+            finalizarAguardar();
+            return false;
+        }
+        
+        if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            finalizarAguardar();
+            return false;
+        }
+        
+        if (senha != confirmacaoSenha) {
+            window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+            finalizarAguardar();
+            return false;
+        }
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+                window.location = "login.html";
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+</script>

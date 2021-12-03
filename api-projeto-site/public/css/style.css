@@ -1,0 +1,879 @@
+* {
+    font-family: 'Cabin';
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: 'Cabin';
+    src: url(Cabin-VariableFont_wdth\,wght.ttf);
+}
+
+html{
+scroll-behavior: smooth;
+}
+
+.padrao {
+    padding: 0;
+    margin: 0;
+    background-color: #CED4DA;
+    /* background: url('desfocada.jpg') no-repeat;
+    background-size: cover; */
+    font-family: 'Cabin';
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.banner {
+    background: url('https://i.pinimg.com/originals/32/0c/f2/320cf2db345f3d2247c82b430cc04f63.jpg')  no-repeat fixed; 
+    background-size: cover;
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.fixed{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.header {
+    width: 100vw;
+    height: 11vh;
+    background-color: #CED4DA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid transparent;
+    box-shadow: 5px 3px 3px #7a7878f5;
+}
+
+.container2 {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    font-weight: 600;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar a:hover {
+    color: #cd8c01;
+}
+
+/* -------- introdução ------------*/
+.introduction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-left: 70px;
+}
+
+div .introduction h2 {
+    color: #800000;
+    background-color: white;
+    padding: 25px;
+    border-radius: 20px; 
+    font-weight: bolder;
+    box-shadow: 5px 3px 3px #7a7878f5;
+     
+}
+.container-introduction{
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.text_intro{
+    font-size: 20px;
+    position: relative;
+    float: left;
+    width: 66.66666666666666%;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    
+}
+
+/* -------- Sobre nos -----------*/
+.header-about {
+    width: 100vw;
+    height: 11vh;
+    background-color: #CED4DA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    /* box-shadow: 5px 3px 3px #800000; */
+}
+
+.container-about {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-about {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    font-weight: 600;
+}
+
+.navbar-about li a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar-about a:hover {
+    color: #cd8c01;
+}
+
+.about{
+    height: 550px;
+    background: url(../assets/imgs/termo2.jpg) no-repeat center center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about .message2{
+    color: #800000;
+    font-size: 60px;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about img{
+    height: 140px;
+    width: 140px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.about span{
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+    width: 300px;
+}
+
+.faq{
+    max-width: 600px;
+    margin: auto;
+    padding: 0 15px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq ul{
+    text-align: left;
+}
+
+.faq h1{
+    color:#800000 ;
+    margin-bottom: 30px;
+}
+
+.faq h2{
+    color: #800000;
+    font-family: "Cabin", sans-serif;
+    font-size: 20px;
+    text-align: left;
+    line-height: 32px;
+    padding: 15px 15px 0;
+    text-transform: none; 
+    letter-spacing: 1px;
+    font-weight: 600;
+    display: block;
+    cursor: pointer;
+    transition: .2s;    
+}
+
+.faq p {
+    color: black;
+    text-align: left;
+    font-family: "cabin", sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+    position: relative;
+    overflow: hidden;
+    max-height: 250px;
+    will-change: max-heigth;
+    contain:layout;
+    display:inline-block;
+    opacity: 1;
+    transform: translate(0,0);
+    margin: 5px 50px 0 15px;
+    transition: .3s opacity, 6s max-height;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: 2;
+    z-index: 2;
+    
+}
+
+.faq ul{
+    list-style: none;
+    perspective: 900;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.faq ul li {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background: #E5E5E5;
+    box-shadow: 0   3px 10px -2px rgba(0, 0, 0, 0.1);
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 4px;
+    
+}
+
+.faq ul li + li {
+    margin-top: 15px;
+    
+}
+
+.faq ul li:last-of-type{
+    padding-bottom: 0;
+}
+
+.faq ul li i{
+    position: absolute;
+    transform: translate(-6px,0);
+    margin-top: 28px;
+    right: 15px;
+    
+}
+
+.faq ul li i::before,
+ul li i ::after{
+    content: "";
+    position: absolute;
+    background-color: #800000;
+    width: 3px;
+    height: 9px;
+}
+
+.faq ul li i ::before{
+    transform: translate(2px, 0) rotate(45deg);
+}
+
+.faq ul li i ::after{
+    transform: translate(-2px, 0) rotate(-45deg);
+    
+}
+
+.faq ul li input[type=checkbox] {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    touch-action: manipulation;
+}
+
+.faq ul li input[type=checkbox]:checked ~ h2{
+    color: #000;
+}
+
+.faq ul li input[type=checkbox]:checked ~ p{
+    margin: 0;
+    max-height: 0;
+    transition: .3s;
+    opacity: 0;
+}
+
+.faq ul li input[type=checkbox]:checked ~i ::before{
+    transform: translate(2px, 0) rotate(-45deg);
+    background: #fff; 
+}
+
+.faq ul li input[type=checkbox]:checked ~i ::after{
+    transform: translate(-2px,0 ) rotate(-45deg);
+    background: #fff;
+}
+
+.transition p, ul li i ::before, ul li i ::after{
+    transition: all 0.3s;
+}    
+
+/* ----------- Segundo banner -------------*/
+.part2 {
+  display: table;
+  height: 500px;
+  width: 100%;
+  background: url('../assets/imgs/servinho.jpg') no-repeat center center fixed; 
+  background-size: cover;
+}
+
+.vert_text {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.vert_text p {
+  color: #ffffff;
+  font-family: 'cabin';
+  padding: 0;
+  margin: 0;
+  font-size: 4.5em;
+  text-shadow: 2px 2px 2px #800000;
+}
+
+.vert_text span {
+    font-family: 'cabin';
+    color: #800000 ;
+    padding: 0;
+    margin: 0;
+    text-shadow: 1px 1px 2px white;
+  }
+
+
+/* ------------- Missão, Visão e Valores --------- */
+.purpose {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-purpose {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-purpose h2 {
+    color: #800000;
+    background-color: white;
+    padding: 25px;
+    border-radius: 20px; 
+    font-weight: bolder;
+    box-shadow: 5px 3px 3px #7a7878f5;
+     
+}
+
+.icons {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.icons div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+}
+
+.icons img {
+    height: 120px;
+    width: 120px;
+    margin: 30px;
+}
+
+.icons img:hover {
+    transform: scale(1.2);
+}
+
+/* --------------- css Login e cadastro e simulador ------------------ */
+.banner-blur {
+    background: url('../assets/imgs/desfocada.jpg') no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 89vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-div img {
+    display: none;
+} 
+
+.container {
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 60vh;
+    margin-top: 100px;
+    margin: 50px;
+    /* border: 1px solid transparent; */
+    box-shadow: inset 0 0 1em #800000, 0 0 3em #800000;
+    padding: 30px;
+}
+
+.container span {
+    font-weight: bolder;
+}
+
+.container a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.textbox {
+    height: 8%;
+    width: 50%;
+    padding-left: 5px;
+    margin: 5px;
+    border: 2px solid black;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;    
+}
+
+.textbox-cad {
+    height: 80%;
+    width: 50%;
+    padding-left: 5px;
+    margin: 15px;
+    border: 2px solid black;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px; 
+}
+
+.textbox-cad:hover {
+    width: 60%;
+    border: 2px solid #800000;
+}
+
+.container div {
+    display: flex;
+    flex-direction: row;
+}
+
+.btn {
+    width: 40%;
+    height: 8%;
+    border: 2px solid #800000 ;
+    border-radius: 20px;
+    cursor: pointer;
+    background: none;
+    margin: 20px;  
+}
+
+.textbox:hover {
+    width: 60%;
+    border: 2px solid #800000;
+}
+
+.btn:hover {
+    background-color: #800000;
+    color: white;
+    font-weight: bolder;
+    width: 50%;
+    box-shadow: inset 0 0 1em #800000, 0 0 1em #800000;
+}
+
+.message {
+    margin-right: -150px;
+    width: 14%;
+    color: white;
+    font-size: 35px;
+}    
+
+.message span {
+    font-weight: bolder;
+    color: white;
+    font-size: 40px;
+}
+
+.result {
+    font-size: 18px;
+}
+
+/* ----------- Suporte -------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+
+.suport{
+    min-height: 800px;
+    background:url(../assets/imgs/vinho.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.contatoarea{
+    width: 1005;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.contatoinfo{
+    color:#fff;
+    max-width: 500px;
+    line-height: 65px;
+    font-size: 18px;
+    
+}
+.contatoinfo i {
+    margin-right: 20px;
+    font-size: 25px;
+}
+
+.contato-form{
+    max-width: 700px;
+    margin-right: 50px;
+}
+
+.contatoinfo, .contato-form{
+    flex: 1;
+}
+
+.contato-form h2{
+    color: #fff;
+    text-align: center;
+    font-size: 35px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.contato-form .texto {
+    background: #000;
+    color: #fff;
+    border:none;
+    width: calc(50% - 10px);
+    height: 50px;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+
+.contato-form .texto:first-child{
+    margin-right: 15px;
+}
+
+.contato-form textarea{
+    background: #000;
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    min-height: 200px;
+    max-height: 400px;
+    resize: vertical;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.contato-form .send-btn{
+    float: right;
+    background: #800000;
+    color: #fff;
+    border: none;
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    transition-property: background;
+}
+
+.contato-form .send-btn:hover{
+    background:#E93E33;
+}
+
+@media screen and (max-width:950px){
+    .contatoarea{
+        flex-direction: column;
+    }
+    
+    .contato-form, .contatoarea{
+        margin: 30px 50px;
+    }
+
+    .contato-form h2{
+        font-size: 30px;
+    }
+    
+    .contato-form .texto{
+        width: 100%;
+    }
+    
+}
+
+/* css alerta */
+.alerta{
+    z-index: 1;
+    background: #9AF57F;
+    font-size: 18px;
+    padding: 20px 40px;
+    min-width: 420px;
+    position: fixed;
+    right: 0;
+    top: 10px;
+    border-left: 8px solid #5CE933;
+    border-radius: 4px;
+}
+
+.alerta-erro{
+    z-index: 1;
+    background: #FFFB81;
+    font-size: 18px;
+    padding: 20px 40px;
+    min-width: 420px;
+    position: fixed;
+    right: 0;
+    top: 10px;
+    border-left: 8px solid #F5EF25;
+    border-radius: 4px;
+}
+
+/* ----------- Roda-pe -------------*/
+
+.footer {
+  background-color: #800000;
+  color: white;
+  height: 15vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* ----------- Side's (?) -------------*/
+.side1 {
+    background: url(../assets/imgs/foto2.jpg) no-repeat;
+    background-size: cover;
+    width: 50%;
+    height: 100%;
+}
+
+/* .side3 {
+    background: url(https://images.unsplash.com/photo-1423483641154-5411ec9c0ddf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80) no-repeat;
+    background-size: cover;
+    width: 50%;
+    height: 100%;
+} */
+
+.side2 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 1);
+    font-weight: 200;
+    
+}
+
+/* .side2 div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.side2 div input {
+    height: 80%;
+    margin: 18px;
+}
+
+.side2 h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    font-size: 35px;
+} */
+
+
+.side2 a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-weight: 600;
+    margin: 3px;
+}
+
+/* PAGINA DOS GRAFICOS */
+
+.janela {
+    display: flex;
+    width: 100vw;
+    /* height: 100vh; */
+}
+
+.header-left a {
+    text-decoration: none;
+    color: white;
+}
+
+.header-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 100vh;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-right: 3px solid firebrick;
+    background-color: darkgrey;
+    /* border: 3px solid pink; */
+}
+
+.dash-right {
+    display: flex;
+    width: 75%;
+    height: fit-content;
+    background-color: #161618;
+    position: relative;
+    top: 0;
+    left: 25%;
+}
+
+.header-left h1 {
+    color: firebrick;
+}
+
+.hello {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hello h3 {
+    color: firebrick;
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+.hello h3 span {
+    font-weight: 800;
+    color: yellow;
+    font-size: larger;
+}
+
+.btn-nav {
+    width: 45%;
+    background-color: firebrick;
+    border: 3px solid firebrick;
+    border-radius: 5px;
+    text-align: center;
+    padding: 2% 5%;
+
+}
+
+.btn-nav { 
+    width: 50%;
+}
+
+
+
+.btn-nav-white {
+    width: 45%;
+    background-color: white;
+    border: 3px solid firebrick;
+    border-radius: 5px;
+    text-align: center;
+    padding: 2% 5%;
+}
+
+.btn-nav-white:hover{
+  width: 50%;
+   
+}
+
+.btn-nav-white h3 {
+    color: black;
+    padding: 0;
+    margin: 0;
+}
+
+
+.btn-nav h3, .btn-logout h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.btn-logout {
+    margin: 0;
+    padding: 0;
+    width: 23%;
+    background-color: aliceblue;
+    color: black;
+    border-radius: 50px;
+    text-align: center;
+    padding: 10px 15px;
+    margin-bottom: 100px;
+    cursor: pointer;
+    border-bottom: solid 4px darkslategrey;
+
+}
+
+.btn-logout:hover{
+    background-color: firebrick;
+    color: aliceblue;
+    border: 2px solid black;
+}
+
+/* pagina extra - simulador */
+.simulador {
+    color: white;
+}

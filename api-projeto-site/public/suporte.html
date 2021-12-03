@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela final</title>
+    
+    <link rel="icon" href="./assets/icon/favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Alerta sucesso -->
+    <div class="alerta" id='informacao' style="display: none;">
+        <span>Mensagem enviada! Obrigado por entrar em contato </span>
+    </div>
+    <!-- Alerta erro -->
+    <div class="alerta-erro" id="informacao2" style="display: none;">
+        <span>Algo deu errado! Por favor tente de novo</span>
+
+    </div>
+
+    <!-- fim -->
+    <!-- inicio -->
+    <div class="padrao">
+        <div class="suport">
+            <div class="fixed">
+                <div class="header">
+                        <div class="container2">
+                            <img src="./assets/imgs/logo2-semfundopng.png" alt="">
+                            <ul class="navbar">
+                                <li><a href="index.html">Início</a></li>
+                                <li><a href="sobre.html">Sobre Nós</a></li>
+                                <li><a href="simulador.html">Simulador</a></li>
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="cadastro.html">Cadastro</a></li>
+                                <li class="active"><a href="suporte.html">Suporte</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="contatoarea">
+                <div class="contatoinfo">
+                    <div><i class="fas fa-map-marker-alt"></i>Rua Haddock Lobo, 595 São Paulo - SP</div>
+                    <div><i class="fas fa-envelope"></i>Termovinhos@bandtec.com.br</div>
+                    <div><i class="fas fa-phone"></i>11-4002-8922</div>
+                    <div><i class="fas fa-clock"></i>De segunda a sexta 09:45 até 15:45</div>
+                </div>
+                <div class="contato-form">
+                    <iframe width="560" height="580" src="https://app.pipefy.com/public/form/ukqKzX6b?embedded=true" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+        <!-- Rodapé -->
+        <div class="footer">
+            <p>Termovinho © 2021</p>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function enviar() {
+        var nome = ipt_nome.value
+        var email = ipt_email.value
+
+
+        if (nome.length > 1 && email.length > 5) {
+            informacao.style.display = 'block'
+            ipt_nome.value = " ";
+            ipt_email.value = " ";
+            area.value = " ";
+        }
+        else if (nome.length < 3 || email.length < 3) {
+            informacao2.style.display = 'block'
+
+        }
+
+
+    }
+</script>

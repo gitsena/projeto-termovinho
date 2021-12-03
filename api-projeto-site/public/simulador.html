@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação</title>
+    <script src="./assets/js/funcoes.js"></script>
+    
+    <link rel="icon" href="./assets/icon/favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+</head>
+<body>
+    <div class="header">
+        <div class="container2">
+            <img src="./assets/imgs/logo2-semfundopng.png" alt="">
+            <ul class="navbar">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li class="active"><a href="">Simulador</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="suporte.html">Suporte</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="banner-blur">
+        <div class="container">
+            <h2>Simulador Financeiro</h2>
+            <input id="ipt_qtd" class="textbox" type="text" placeholder="Quantidade de Funcionários">
+            <input id="ipt_media" class="textbox" type="text" placeholder="Média salarial">
+            <input id="ipt_email" class="textbox" type="text" placeholder="E-mail para contato">
+            <input class="btn" type="button" value="Simular" onclick="simular()">
+
+            <div id="div_result" class="result" style="display: none;">
+                <p>
+                    A principal vantagem do nosso serviço é a economia de tempo e dinheiro.
+                    <br><br>
+                    Desta forma, sua economia seria, aproximadamente, de <span id="span_economia"></span> reais mensais, 
+                    além da inestimável economia de tempo.
+                    <br><br>
+                    Entre em contato para mais detalhes
+                </p>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>
+
+<script>
+    function simular() {
+        if (ipt_email.value != 0) {
+            // Quantidade de funcionários multiplicado pela média salarial e subtraindo 1500 (valor do ticket do serviço)
+            var economia = (ipt_qtd.value * ipt_media.value) - 1500;
+            span_economia.innerHTML = `R$${economia.toFixed(2)}`;
+            div_result.style.display = 'block';
+            ipt_qtd.value = ''; 
+            ipt_media.value = ''; 
+            ipt_email.value = ''; 
+        }
+        else {
+            alert('Por favor, insira um e-mail válido')
+        }
+    }
+</script>
