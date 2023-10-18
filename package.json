@@ -1,0 +1,28 @@
+{
+  "homepage": ".",
+  "name": "projeto-acquatec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
+    "start": "node app.js",
+    "dev": "nodemon --exec node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Feito pelos desenvolvedores @ Bandtec Digital School",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mssql": "^10.0.1",
+    "mysql2": "^3.6.2",
+    "nodemon": "^3.0.1",
+    "path": "^0.12.7",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
+}
