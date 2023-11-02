@@ -29,7 +29,7 @@ html {
     background: url('https://i.pinimg.com/originals/32/0c/f2/320cf2db345f3d2247c82b430cc04f63.jpg') no-repeat fixed;
     background-size: cover;
     height: 90vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,7 +45,7 @@ html {
 }
 
 .header {
-    width: 100vw;
+    width: 100%;
     height: 11vh;
     background-color: #CED4DA;
     display: flex;
@@ -122,7 +122,7 @@ div .introduction h2 {
 
 /* -------- Sobre nos -----------*/
 .header-about {
-    width: 100vw;
+    width: 100%;
     height: 11vh;
     background-color: #CED4DA;
     display: flex;
@@ -158,7 +158,7 @@ div .introduction h2 {
 }
 
 .about {
-    height: 550px;
+    height: 668px;
     background: url(../assets/imgs/termo2.jpg) no-repeat center center fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -196,6 +196,8 @@ div .introduction h2 {
     padding: 0 15px;
     text-align: center;
     margin-bottom: 50px;
+    margin-top: 50px;
+
 }
 
 .faq ul {
@@ -397,11 +399,10 @@ ul li i ::after {
 }
 
 .icons {
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
 }
 
 .icons div {
@@ -426,7 +427,7 @@ ul li i ::after {
 .banner-blur {
     background: url('../assets/imgs/desfocada.jpg') no-repeat;
     background-size: cover;
-    width: 100vw;
+    width: 100%;
     height: 89vh;
     display: flex;
     justify-content: center;
@@ -513,7 +514,7 @@ ul li i ::after {
     background-color: #800000;
     color: white;
     font-weight: bolder;
-    width: 50%;
+    width: 45%;
     box-shadow: inset 0 0 1em #800000, 0 0 1em #800000;
 }
 
