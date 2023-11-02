@@ -3,13 +3,14 @@
     margin: 0;
     padding: 0;
 }
+
 @font-face {
     font-family: 'Cabin';
     src: url(Cabin-VariableFont_wdth\,wght.ttf);
 }
 
-html{
-scroll-behavior: smooth;
+html {
+    scroll-behavior: smooth;
 }
 
 .padrao {
@@ -22,11 +23,10 @@ scroll-behavior: smooth;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
 }
 
 .banner {
-    background: url('https://i.pinimg.com/originals/32/0c/f2/320cf2db345f3d2247c82b430cc04f63.jpg')  no-repeat fixed; 
+    background: url('https://i.pinimg.com/originals/32/0c/f2/320cf2db345f3d2247c82b430cc04f63.jpg') no-repeat fixed;
     background-size: cover;
     height: 90vh;
     width: 100vw;
@@ -36,7 +36,7 @@ scroll-behavior: smooth;
 
 }
 
-.fixed{
+.fixed {
     position: fixed;
     top: 0;
     right: 0;
@@ -93,12 +93,13 @@ div .introduction h2 {
     color: #800000;
     background-color: white;
     padding: 25px;
-    border-radius: 20px; 
+    border-radius: 20px;
     font-weight: bolder;
     box-shadow: 5px 3px 3px #7a7878f5;
-     
+
 }
-.container-introduction{
+
+.container-introduction {
     height: 60vh;
     display: flex;
     flex-direction: column;
@@ -108,7 +109,7 @@ div .introduction h2 {
 
 }
 
-.text_intro{
+.text_intro {
     font-size: 20px;
     position: relative;
     float: left;
@@ -116,7 +117,7 @@ div .introduction h2 {
     justify-content: center;
     text-align: center;
     padding: 30px;
-    
+
 }
 
 /* -------- Sobre nos -----------*/
@@ -156,7 +157,7 @@ div .introduction h2 {
     color: #cd8c01;
 }
 
-.about{
+.about {
     height: 550px;
     background: url(../assets/imgs/termo2.jpg) no-repeat center center fixed;
     background-size: cover;
@@ -166,7 +167,7 @@ div .introduction h2 {
     align-items: center;
 }
 
-.about .message2{
+.about .message2 {
     color: #800000;
     font-size: 60px;
     font-weight: bolder;
@@ -175,21 +176,21 @@ div .introduction h2 {
     align-items: center;
 }
 
-.about img{
+.about img {
     height: 140px;
     width: 140px;
     margin-top: 40px;
     margin-bottom: 40px;
 }
 
-.about span{
+.about span {
     font-size: 20px;
     text-align: center;
     justify-content: center;
     width: 300px;
 }
 
-.faq{
+.faq {
     max-width: 600px;
     margin: auto;
     padding: 0 15px;
@@ -197,28 +198,28 @@ div .introduction h2 {
     margin-bottom: 50px;
 }
 
-.faq ul{
+.faq ul {
     text-align: left;
 }
 
-.faq h1{
-    color:#800000 ;
+.faq h1 {
+    color: #800000;
     margin-bottom: 30px;
 }
 
-.faq h2{
+.faq h2 {
     color: #800000;
     font-family: "Cabin", sans-serif;
     font-size: 20px;
     text-align: left;
     line-height: 32px;
     padding: 15px 15px 0;
-    text-transform: none; 
+    text-transform: none;
     letter-spacing: 1px;
     font-weight: 600;
     display: block;
     cursor: pointer;
-    transition: .2s;    
+    transition: .2s;
 }
 
 .faq p {
@@ -231,25 +232,25 @@ div .introduction h2 {
     overflow: hidden;
     max-height: 250px;
     will-change: max-heigth;
-    contain:layout;
-    display:inline-block;
+    contain: layout;
+    display: inline-block;
     opacity: 1;
-    transform: translate(0,0);
+    transform: translate(0, 0);
     margin: 5px 50px 0 15px;
     transition: .3s opacity, 6s max-height;
     hyphens: auto;
     -webkit-hyphens: auto;
     -ms-hyphens: 2;
     z-index: 2;
-    
+
 }
 
-.faq ul{
+.faq ul {
     list-style: none;
     perspective: 900;
     padding: 0;
     margin: 0;
-    
+
 }
 
 .faq ul li {
@@ -258,31 +259,31 @@ div .introduction h2 {
     padding: 0;
     margin: 0;
     background: #E5E5E5;
-    box-shadow: 0   3px 10px -2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.1);
     -webkit-tap-highlight-color: transparent;
     border-radius: 4px;
-    
+
 }
 
-.faq ul li + li {
+.faq ul li+li {
     margin-top: 15px;
-    
+
 }
 
-.faq ul li:last-of-type{
+.faq ul li:last-of-type {
     padding-bottom: 0;
 }
 
-.faq ul li i{
+.faq ul li i {
     position: absolute;
-    transform: translate(-6px,0);
+    transform: translate(-6px, 0);
     margin-top: 28px;
     right: 15px;
-    
+
 }
 
 .faq ul li i::before,
-ul li i ::after{
+ul li i ::after {
     content: "";
     position: absolute;
     background-color: #800000;
@@ -290,13 +291,13 @@ ul li i ::after{
     height: 9px;
 }
 
-.faq ul li i ::before{
+.faq ul li i ::before {
     transform: translate(2px, 0) rotate(45deg);
 }
 
-.faq ul li i ::after{
+.faq ul li i ::after {
     transform: translate(-2px, 0) rotate(-45deg);
-    
+
 }
 
 .faq ul li input[type=checkbox] {
@@ -309,62 +310,64 @@ ul li i ::after{
     touch-action: manipulation;
 }
 
-.faq ul li input[type=checkbox]:checked ~ h2{
+.faq ul li input[type=checkbox]:checked~h2 {
     color: #000;
 }
 
-.faq ul li input[type=checkbox]:checked ~ p{
+.faq ul li input[type=checkbox]:checked~p {
     margin: 0;
     max-height: 0;
     transition: .3s;
     opacity: 0;
 }
 
-.faq ul li input[type=checkbox]:checked ~i ::before{
+.faq ul li input[type=checkbox]:checked~i ::before {
     transform: translate(2px, 0) rotate(-45deg);
-    background: #fff; 
-}
-
-.faq ul li input[type=checkbox]:checked ~i ::after{
-    transform: translate(-2px,0 ) rotate(-45deg);
     background: #fff;
 }
 
-.transition p, ul li i ::before, ul li i ::after{
+.faq ul li input[type=checkbox]:checked~i ::after {
+    transform: translate(-2px, 0) rotate(-45deg);
+    background: #fff;
+}
+
+.transition p,
+ul li i ::before,
+ul li i ::after {
     transition: all 0.3s;
-}    
+}
 
 /* ----------- Segundo banner -------------*/
 .part2 {
-  display: table;
-  height: 500px;
-  width: 100%;
-  background: url('../assets/imgs/servinho.jpg') no-repeat center center fixed; 
-  background-size: cover;
+    display: table;
+    height: 500px;
+    width: 100%;
+    background: url('../assets/imgs/servinho.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 .vert_text {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 }
 
 .vert_text p {
-  color: #ffffff;
-  font-family: 'cabin';
-  padding: 0;
-  margin: 0;
-  font-size: 4.5em;
-  text-shadow: 2px 2px 2px #800000;
+    color: #ffffff;
+    font-family: 'cabin';
+    padding: 0;
+    margin: 0;
+    font-size: 4.5em;
+    text-shadow: 2px 2px 2px #800000;
 }
 
 .vert_text span {
     font-family: 'cabin';
-    color: #800000 ;
+    color: #800000;
     padding: 0;
     margin: 0;
     text-shadow: 1px 1px 2px white;
-  }
+}
 
 
 /* ------------- Missão, Visão e Valores --------- */
@@ -387,10 +390,10 @@ ul li i ::after{
     color: #800000;
     background-color: white;
     padding: 25px;
-    border-radius: 20px; 
+    border-radius: 20px;
     font-weight: bolder;
     box-shadow: 5px 3px 3px #7a7878f5;
-     
+
 }
 
 .icons {
@@ -432,7 +435,7 @@ ul li i ::after{
 
 .loading-div img {
     display: none;
-} 
+}
 
 .container {
     background-color: rgba(255, 255, 255, 1);
@@ -458,6 +461,7 @@ ul li i ::after{
     color: black;
     font-weight: bold;
 }
+
 .textbox {
     height: 8%;
     width: 50%;
@@ -466,7 +470,7 @@ ul li i ::after{
     border: 2px solid black;
     border-radius: 20px;
     outline: none;
-    font-size: 16px;    
+    font-size: 16px;
 }
 
 .textbox-cad {
@@ -477,7 +481,7 @@ ul li i ::after{
     border: 2px solid black;
     border-radius: 20px;
     outline: none;
-    font-size: 16px; 
+    font-size: 16px;
 }
 
 .textbox-cad:hover {
@@ -493,11 +497,11 @@ ul li i ::after{
 .btn {
     width: 40%;
     height: 8%;
-    border: 2px solid #800000 ;
+    border: 2px solid #800000;
     border-radius: 20px;
     cursor: pointer;
     background: none;
-    margin: 20px;  
+    margin: 20px;
 }
 
 .textbox:hover {
@@ -518,7 +522,7 @@ ul li i ::after{
     width: 14%;
     color: white;
     font-size: 35px;
-}    
+}
 
 .message span {
     font-weight: bolder;
@@ -534,43 +538,45 @@ ul li i ::after{
 
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
 
-.suport{
+.suport {
     min-height: 800px;
-    background:url(../assets/imgs/vinho.jpg);
+    background: url(../assets/imgs/vinho.jpg);
     background-size: cover;
     display: flex;
     justify-content: center;
     align-self: center;
 }
-.contatoarea{
-    width: 1005;
+
+.contatoarea {
+    width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    
+    flex-direction: row;
+    justify-content: space-around;
+
 }
-.contatoinfo{
-    color:#fff;
+
+.contatoinfo {
+    color: #fff;
     max-width: 500px;
     line-height: 65px;
     font-size: 18px;
-    
+
 }
+
 .contatoinfo i {
     margin-right: 20px;
     font-size: 25px;
 }
 
-.contato-form{
-    max-width: 700px;
-    margin-right: 50px;
+.contato-form .col-form {
+    display: flex;
+    flex-direction: column;
+    padding: 42px;
 }
 
-.contatoinfo, .contato-form{
-    flex: 1;
-}
 
-.contato-form h2{
+.contato-form h2 {
     color: #fff;
     text-align: center;
     font-size: 35px;
@@ -581,7 +587,7 @@ ul li i ::after{
 .contato-form .texto {
     background: #000;
     color: #fff;
-    border:none;
+    border: none;
     width: calc(50% - 10px);
     height: 50px;
     padding: 12px;
@@ -593,11 +599,11 @@ ul li i ::after{
 }
 
 
-.contato-form .texto:first-child{
+.contato-form .texto:first-child {
     margin-right: 15px;
 }
 
-.contato-form textarea{
+.contato-form textarea {
     background: #000;
     color: #fff;
     border: none;
@@ -613,7 +619,7 @@ ul li i ::after{
     opacity: 0.9;
 }
 
-.contato-form .send-btn{
+.contato-form .send-btn {
     float: right;
     background: #800000;
     color: #fff;
@@ -630,31 +636,32 @@ ul li i ::after{
     transition-property: background;
 }
 
-.contato-form .send-btn:hover{
-    background:#E93E33;
+.contato-form .send-btn:hover {
+    background: #E93E33;
 }
 
-@media screen and (max-width:950px){
-    .contatoarea{
+@media screen and (max-width:950px) {
+    .contatoarea {
         flex-direction: column;
     }
-    
-    .contato-form, .contatoarea{
+
+    .contato-form,
+    .contatoarea {
         margin: 30px 50px;
     }
 
-    .contato-form h2{
+    .contato-form h2 {
         font-size: 30px;
     }
-    
-    .contato-form .texto{
+
+    .contato-form .texto {
         width: 100%;
     }
-    
+
 }
 
 /* css alerta */
-.alerta{
+.alerta {
     z-index: 1;
     background: #9AF57F;
     font-size: 18px;
@@ -667,7 +674,7 @@ ul li i ::after{
     border-radius: 4px;
 }
 
-.alerta-erro{
+.alerta-erro {
     z-index: 1;
     background: #FFFB81;
     font-size: 18px;
@@ -683,13 +690,13 @@ ul li i ::after{
 /* ----------- Roda-pe -------------*/
 
 .footer {
-  background-color: #800000;
-  color: white;
-  height: 15vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background-color: #800000;
+    color: white;
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -717,7 +724,7 @@ ul li i ::after{
     align-items: center;
     background-color: rgba(255, 255, 255, 1);
     font-weight: 200;
-    
+
 }
 
 /* .side2 div {
@@ -820,7 +827,7 @@ ul li i ::after{
 
 }
 
-.btn-nav { 
+.btn-nav {
     width: 50%;
 }
 
@@ -835,9 +842,9 @@ ul li i ::after{
     padding: 2% 5%;
 }
 
-.btn-nav-white:hover{
-  width: 50%;
-   
+.btn-nav-white:hover {
+    width: 50%;
+
 }
 
 .btn-nav-white h3 {
@@ -847,7 +854,8 @@ ul li i ::after{
 }
 
 
-.btn-nav h3, .btn-logout h3 {
+.btn-nav h3,
+.btn-logout h3 {
     margin: 0;
     padding: 0;
 }
@@ -867,7 +875,7 @@ ul li i ::after{
 
 }
 
-.btn-logout:hover{
+.btn-logout:hover {
     background-color: firebrick;
     color: aliceblue;
     border: 2px solid black;
